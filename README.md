@@ -1,8 +1,8 @@
-# Electronic Component Recognition System
+# Electronic Component Classifier
 
 **An ESP32-CAM powered electronic component recognition and inventory platform.**
 
-Electronic Component Recognition System helps electronics students, makers, and lab teams turn loose component bins into a searchable inventory. An ESP32-CAM or dashboard upload captures a component image, a FastAPI backend runs a MobileNetV2-style classifier, and the dashboard lets a human review the result, correct labels, and grow the training dataset over time.
+Electronic Component Classifier helps electronics students, makers, and lab teams turn loose component bins into a searchable inventory. An ESP32-CAM or dashboard upload captures a component image, a FastAPI backend runs a MobileNetV2-style classifier, and the dashboard lets a human review the result, correct labels, and grow the training dataset over time.
 
 
 <img width="1280" height="571" alt="image" src="https://github.com/user-attachments/assets/025ce4cb-0092-48e0-a9c0-c77c35b05310" />
@@ -24,7 +24,7 @@ Low-confidence or unsupported images are returned as `unknown` so they can be re
 
 ## Why It Exists
 
-Small electronics collections become hard to manage quickly: parts get mixed, labels disappear, and project teams lose time checking whether a component is available. Electronic Component Recognition System is a practical prototype for scanning parts at the bench, keeping recent captures visible, and building a better dataset from real corrections.
+Small electronics collections become hard to manage quickly: parts get mixed, labels disappear, and project teams lose time checking whether a component is available. Electronic Component Classifier is a practical prototype for scanning parts at the bench, keeping recent captures visible, and building a better dataset from real corrections.
 
 ## Key Features
 
@@ -226,7 +226,7 @@ The public release keeps tests focused on backend contracts and deterministic he
 
 ## Contributors And Teamwork
 
-Electronic Component Recognition System is structured for collaboration: firmware, backend, ML, dashboard, and documentation can evolve independently while sharing one scan workflow. The dashboard work is preserved as the review surface for the project, and backend aliases keep existing ESP32-CAM integrations working while the naming moves from resistor-only scans to component scans.
+Electronic Component Classifier is structured for collaboration: firmware, backend, ML, dashboard, and documentation can evolve independently while sharing one scan workflow. The dashboard work is preserved as the review surface for the project, and backend aliases keep existing ESP32-CAM integrations working while the naming moves from resistor-only scans to component scans.
 
 ## Security Notes
 
