@@ -185,18 +185,6 @@ The training script uses MobileNetV2 transfer learning with a validation split. 
 
 This keeps the project honest: uncertain predictions become useful training data instead of hidden inventory mistakes.
 
-## API Overview
-
-- `GET /api/health` - health check.
-- `POST /api/component-scans` - upload a component image.
-- `POST /api/resistor-scans` - backwards-compatible alias for existing firmware/dashboard flows.
-- `GET /api/component-scans/latest` - latest accepted scan for dashboard polling.
-- `GET /api/resistor-scans/latest` - backwards-compatible latest-scan alias.
-- `GET /api/component-scans` - recent scan history.
-- `PATCH /api/component-scans/{scan_id}/correction` - confirm or correct a component label.
-- `POST /api/inventory/components` - add a detected or corrected scan to inventory.
-- `GET /api/inventory/components` - list lightweight inventory items.
-
 See [docs/api.md](docs/api.md) for request and response examples.
 
 ## Testing
@@ -208,28 +196,3 @@ pytest
 
 The public release keeps tests focused on backend contracts and deterministic helpers. Manual hardware validation is still required for camera focus, lighting, network setup, and real-world classification quality.
 
-## Limitations
-
-- The classifier expects one supported component per image.
-- Results depend heavily on lighting, focus, background, and training data quality.
-- The backend returns `unknown` when no trained model is available or confidence is below threshold.
-- Inventory storage is intentionally lightweight for the current prototype.
-- Resistor band calculation utilities are retained, but the main scan endpoint currently performs component classification rather than resistance decoding.
-
-## Roadmap
-
-- Expand and balance the ESP32-CAM dataset for all five classes.
-- Add measured evaluation reports before publishing model-quality claims.
-- Improve dashboard controls for dataset review batches.
-- Add persistent inventory storage.
-- Support model export for edge deployment experiments.
-- Add object-detection support for images with multiple components.
-- Add richer component attributes after class recognition.
-
-## Contributors And Teamwork
-
-Electronic Component Classifier is structured for collaboration: firmware, backend, ML, dashboard, and documentation can evolve independently while sharing one scan workflow. The dashboard work is preserved as the review surface for the project, and backend aliases keep existing ESP32-CAM integrations working while the naming moves from resistor-only scans to component scans.
-
-## Security Notes
-
-Local credentials belong in `firmware/esp32_cam_capture/secrets.h`, which is ignored by Git. Do not commit Wi-Fi names, Wi-Fi passwords, personal LAN addresses, API tokens, model checkpoints with private data, or runtime scan captures.
