@@ -24,45 +24,9 @@ The current classifier workflow supports one component per image across five cla
 
 Low-confidence or unsupported images are returned as `unknown` so they can be reviewed instead of silently entering inventory with a bad label.
 
-## Why It Exists
+##WHy is this useful?
 
 Small electronics collections become hard to manage quickly: parts get mixed, labels disappear, and project teams lose time checking whether a component is available. Electronic Component Classifier is a practical prototype for scanning parts at the bench, keeping recent captures visible, and building a better dataset from real corrections.
-
-## Key Features
-
-- ESP32-CAM firmware with local `/capture` preview and `/scan` upload actions.
-- FastAPI image-upload API with rate limiting and scan history.
-- Training-ready MobileNetV2 transfer-learning classifier.
-- Dashboard upload flow for camera or local images.
-- Latest-scan polling and scan detail review.
-- Human correction loop that can save reviewed images back into `dataset/<class>/`.
-- Lightweight inventory action for detected or corrected scans.
-- Mock uploader for testing without hardware.
-- Pytest coverage for backend behavior, rate limiting, and resistor utility logic.
-
-## Architecture
-
-```text
-ESP32-CAM or dashboard upload
-        |
-        v
-FastAPI /api/component-scans
-        |
-        v
-ComponentImageClassifier
-MobileNetV2-style Keras model, confidence threshold, unknown fallback
-        |
-        v
-Scan store + dashboard polling
-        |
-        v
-Human correction -> dataset/<class>/ -> retraining
-        |
-        v
-Inventory
-```
-
-The ESP32-CAM captures JPEG images and posts them to the backend. The backend owns validation, rate limiting, image storage, classification, correction, and inventory actions. The dashboard remains a browser-based review surface and preserves the existing scan-card workflow.
 
 ## Tech Stack
 
