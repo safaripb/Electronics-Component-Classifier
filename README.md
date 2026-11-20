@@ -1,5 +1,7 @@
 # Electronic Component Classifier
 
+[**Try the live dashboard**](https://componentbox-classifier-demo.parnia-yazdinia.chatgpt.site) — Explore six sample scans, review component labels, and add parts to inventory in your browser. Demo changes reset when you refresh.
+
 **An ESP32-CAM powered electronic component recognition and inventory platform.**
 
 Electronic Component Classifier helps electronics students, makers, and lab teams turn loose component bins into a searchable inventory. An ESP32-CAM or dashboard upload captures a component image, a FastAPI backend runs a MobileNetV2-style classifier, and the dashboard lets a human review the result, correct labels, and grow the training dataset over time.
