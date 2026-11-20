@@ -1,6 +1,6 @@
 # Electronic Component Classifier
 
-[**Try the live dashboard**](https://componentbox-classifier-demo.parnia-yazdinia.chatgpt.site) — Explore six sample scans, review component labels, and add parts to inventory in your browser. Demo changes reset when you refresh.
+[**Try the live dashboard**](https://componentbox-classifier-demo.parnia-yazdinia.chatgpt.site): Explore six sample scans, review component labels, and add parts to inventory in your browser.
 
 **An ESP32-CAM powered electronic component recognition and inventory platform.**
 
